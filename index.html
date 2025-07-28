@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberCore Defective Robots Warehouse 2125</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="ai-assistant" onclick="toggleAI()" title="CyberCore AI Assistant"></div>
+
+    <div class="notification" id="notification">
+        <div id="notificationContent"></div>
+    </div>
+
+    <header class="header">
+        <h1>🤖 CyberCore Defective Robots Warehouse 2125</h1>
+    </header>
+
+    <div class="container">
+        <div class="warehouse-display">
+            <h2>🏭 Warehouse Grid Layout</h2>
+            <div class="warehouse-grid" id="warehouseGrid"></div>
+            <div class="grid-info" id="gridInfo">
+                <span>Grid Size: <span id="gridSize">10x10</span></span>
+                <span>Utilized Space: <span id="utilizedSpace">0%</span></span>
+            </div>
+        </div>
+
+        <div class="control-panel">
+            <div class="status-dot"></div>
+            
+            <div class="panel-section">
+                <h3>📊 System Status</h3>
+                <div class="status-panel">
+                    <div class="status-item">
+                        <div class="status-value" id="totalRobots">0</div>
+                        <div class="status-label">Total Robots</div>
+                        <div class="performance-bar">
+                            <div class="performance-fill" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-value" id="placedRobots">0</div>
+                        <div class="status-label">Placed Robots</div>
+                        <div class="performance-bar">
+                            <div class="performance-fill" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-value" id="efficiency">0%</div>
+                        <div class="status-label">Space Efficiency</div>
+                        <div class="performance-bar">
+                            <div class="performance-fill" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-value" id="collisions">0</div>
+                        <div class="status-label">Collisions</div>
+                        <div class="performance-bar">
+                            <div class="performance-fill collision-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-section">
+                <h3>🏗️ Grid Configuration</h3>
+                <div class="form-group">
+                    <label for="gridSizeInput">Grid Size:</label>
+                    <input type="number" id="gridSizeInput" min="5" max="50" value="10">
+                </div>
+                <button class="btn btn-primary" onclick="updateGridSize()">🔄 Update Grid</button>
+            </div>
+
+            <div class="panel-section">
+                <h3>📥 Robot Data Input</h3>
+                <div class="form-group">
+                    <label for="jsonInput">JSON Robot Data:</label>
+                    <textarea id="jsonInput" rows="8" placeholder='[
+  { "id": "robot_01", "width": 2, "height": 1 },
+  { "id": "robot_02", "width": 1, "height": 3 },
+  { "id": "robot_03", "width": 3, "height": 2 }
+]'></textarea>
+                </div>
+                <button class="btn btn-primary" onclick="loadRobotsFromJSON()">🚀 Load Robots</button>
+                <button class="btn btn-secondary" onclick="generateRandomRobots()">🎲 Generate Random</button>
+            </div>
+
+            <div class="panel-section">
+                <h3>🔧 Placement Algorithm</h3>
+                <div class="form-group">
+                    <label for="algorithm">Algorithm:</label>
+                    <select id="algorithm">
+                        <option value="bestFit">Best Fit</option>
+                        <option value="firstFit">First Fit</option>
+                        <option value="bottomLeft">Bottom-Left</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" onclick="optimizePlacement()">⚡ Optimize Placement</button>
+                <button class="btn btn-secondary" onclick="clearWarehouse()">🗑️ Clear Warehouse</button>
+                <button class="btn btn-primary" onclick="exportLayout()">💾 Export Layout</button>
+            </div>
+
+            <div class="panel-section">
+                <h3>📋 Robot List</h3>
+                <div class="robot-list" id="robotList">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
